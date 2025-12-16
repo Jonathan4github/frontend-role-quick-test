@@ -3,7 +3,7 @@ import { CryptoCheckoutModal } from './components/CryptoCheckoutModal';
 import './App.css';
 
 function App() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(true);
 
   return (
     <div className="app">

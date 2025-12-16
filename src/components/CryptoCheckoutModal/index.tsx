@@ -24,6 +24,7 @@ export const CryptoCheckoutModal: React.FC<CryptoCheckoutModalProps> = ({
   });
 
   const [isLoading, setIsLoading] = useState(false);
+  const [email, setEmail] = useState('');
 
   // Close on Escape key
   useEffect(() => {
@@ -73,55 +74,91 @@ export const CryptoCheckoutModal: React.FC<CryptoCheckoutModalProps> = ({
           onTabChange={handleTabChange}
         />
 
-        <div className="modal-form">
-          <CurrencyInput
-            label="You pay"
-            value={formData.youPay}
-            onChange={(value) => setFormData(prev => ({ ...prev, youPay: value }))}
-            currencies={CURRENCIES}
-            selectedCurrency={formData.payFromCurrency}
-            onCurrencyChange={(currency) =>
-              setFormData(prev => ({ ...prev, payFromCurrency: currency }))
-            }
-          />
+        {formData.activeTab === 'crypto-to-cash' && (
+          <div className="modal-form">
+            <CurrencyInput
+              label="You pay"
+              value={formData.youPay}
+              onChange={(value) =>
+                setFormData(prev => ({ ...prev, youPay: value }))
+              }
+              currencies={CURRENCIES}
+              selectedCurrency={formData.payFromCurrency}
+              onCurrencyChange={(currency) =>
+                setFormData(prev => ({ ...prev, payFromCurrency: currency }))
+              }
+            />
 
-          <CurrencyInput
-            label="You receive"
-            value={formData.youReceive}
-            onChange={(value) => setFormData(prev => ({ ...prev, youReceive: value }))}
-            currencies={CURRENCIES}
-            selectedCurrency={formData.payToCurrency}
-            onCurrencyChange={(currency) =>
-              setFormData(prev => ({ ...prev, payToCurrency: currency }))
-            }
-          />
+            <CurrencyInput
+              label="You receive"
+              value={formData.youReceive}
+              onChange={(value) =>
+                setFormData(prev => ({ ...prev, youReceive: value }))
+              }
+              currencies={CURRENCIES}
+              selectedCurrency={formData.payToCurrency}
+              onCurrencyChange={(currency) =>
+                setFormData(prev => ({ ...prev, payToCurrency: currency }))
+              }
+            />
 
-          <Dropdown
-            label="Pay from"
-            options={paymentMethodOptions}
-            value={formData.payFrom?.id || null}
-            onChange={(value) => {
-              const method = PAYMENT_METHODS.find(pm => pm.id === value);
-              setFormData(prev => ({ ...prev, payFrom: method || null }));
-            }}
-            placeholder="Select an option"
-          />
+            <Dropdown
+              label="Pay from"
+              options={paymentMethodOptions}
+              value={formData.payFrom?.id || null}
+              onChange={(value) => {
+                const method = PAYMENT_METHODS.find(pm => pm.id === value);
+                setFormData(prev => ({ ...prev, payFrom: method || null }));
+              }}
+              placeholder="Select an option"
+            />
 
-          <Dropdown
-            label="Pay to"
-            options={paymentMethodOptions}
-            value={formData.payTo?.id || null}
-            onChange={(value) => {
-              const method = PAYMENT_METHODS.find(pm => pm.id === value);
-              setFormData(prev => ({ ...prev, payTo: method || null }));
-            }}
-            placeholder="Select an option"
-          />
+            <Dropdown
+              label="Pay to"
+              options={paymentMethodOptions}
+              value={formData.payTo?.id || null}
+              onChange={(value) => {
+                const method = PAYMENT_METHODS.find(pm => pm.id === value);
+                setFormData(prev => ({ ...prev, payTo: method || null }));
+              }}
+              placeholder="Select an option"
+            />
 
-          <Button onClick={handleSubmit} loading={isLoading}>
-            Convert now
-          </Button>
-        </div>
+            <Button onClick={handleSubmit} loading={isLoading}>
+              Convert now
+            </Button>
+          </div>
+        )}
+
+        {formData.activeTab === 'cash-to-crypto' && (
+          <>
+            <div className="coming-soon">
+              <h2 className="coming-soon__text">Coming Soon!</h2>
+              <p className="coming-soon__subtitle">Cash to Crypto is almost here.</p>
+              <p className="coming-soon__subtitle">
+                Enter your email and we'll let you know the moment it's live.
+              </p>
+            </div>
+
+            <div className="coming-soon__email-form">
+              <label className="coming-soon__email-label">Email</label>
+              <input
+                type="email"
+                className="coming-soon__email-input"
+                placeholder="Enter your email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+
+              <Button onClick={handleSubmit} loading={isLoading}>
+                Update me
+              </Button>
+            </div>
+          </>
+        )}
+
+        {formData.activeTab === 'crypto-to-fiat-loan' && null}
+
       </div>
     </div>
   );

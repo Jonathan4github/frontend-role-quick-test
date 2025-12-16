@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Clash+Display:wght@400;500;600;700&display=swap');
+
 .modal-overlay {
   position: fixed;
   top: 0;
@@ -28,6 +30,7 @@
   padding: 32px;
   max-width: 640px;
   width: 100%;
+  min-height: 95vh;
   max-height: 95vh;
   overflow-y: auto;
   position: relative;
@@ -99,4 +102,73 @@
   .modal-content {
     padding: 20px;
   }
+}
+
+/* Coming Soon */
+.coming-soon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+  gap: 8px;
+}
+
+.coming-soon__text {
+  font-family: 'Clash Display', sans-serif;
+  font-size: 32px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-align: center;
+  color: #013941;
+  margin: 0 0 24px 0;
+}
+
+.coming-soon__subtitle {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 150%;
+  letter-spacing: 0%;
+  text-align: center;
+  color: #4F4F4F;
+  margin: 0;
+  max-width: 500px;
+}
+
+.coming-soon__email-form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-left: 55px;
+}
+
+.coming-soon__email-label {
+  font-family: 'Outfit', Helvetica, sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 16px; 
+  letter-spacing: 0;
+  color: #013941;
+  margin-bottom: 18px;
+}
+
+.coming-soon__email-input {
+  font-family: 'Outfit', Helvetica, sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 16px;
+  padding: 12px 14px;
+  border: 1px solid #E0E0E0;
+  border-radius: 30px;
+  outline: none;
+  width: 90%;
+  height: 60px;
+  margin-bottom: 60px;
+}
+
+.coming-soon__email-input::placeholder {
+  font-family: 'Outfit', Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  color: #828282;
 }
