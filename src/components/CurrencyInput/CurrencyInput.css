@@ -1,0 +1,194 @@
+.currency-input {
+  width: 100%;
+  margin-bottom: 4px;
+}
+
+.currency-input__wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 22px;
+  background: white;
+  border: 1px solid #e5e5e5;
+  border-radius: 30px;
+  transition: all 0.2s ease;
+}
+
+.currency-input__label {
+  display: block;
+  font-size: 16px;
+  color: #828282;
+  font-weight: 500;
+  margin: 0;
+  text-align: left;
+}
+
+.currency-input__content {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.currency-input__field {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 24px;
+  font-weight: 600;
+  color: #333;
+  background: transparent;
+  min-width: 0;
+}
+
+.currency-input__field::placeholder {
+  color: #ccc;
+}
+
+/* Remove number input arrows */
+.currency-input__field::-webkit-outer-spin-button,
+.currency-input__field::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.currency-input__field[type=number] {
+  -moz-appearance: textfield;
+}
+
+.currency-input__selector {
+  position: relative;
+}
+
+.currency-input__trigger {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  background: #f5f5f5;
+  border: solid 1px #E0E0E0;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 14px;
+  font-weight: 600;
+  min-width: 100px;
+  height: 36px;
+}
+
+.currency-input__trigger:hover {
+  background: #e8e8e8;
+}
+
+.currency-input__flag {
+  font-size: 18px;
+  line-height: 1;
+}
+
+.currency-input__code {
+  color: #333;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.currency-input__icon {
+  transition: transform 0.2s ease;
+  color: #666;
+  flex-shrink: 0;
+}
+
+.currency-input__icon--open {
+  transform: rotate(180deg);
+}
+
+.currency-input__menu {
+  position: absolute;
+  top: calc(100% + 4px);
+  right: 0;
+  background: white;
+  border: 1px solid #e5e5e5;
+  border-radius: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 8px;
+  margin: 0;
+  z-index: 1000;
+  min-width: 264px;
+  max-width: 300px;
+}
+
+.currency-input__search {
+  position: relative;
+  padding: 8px;
+  border-bottom: 1px solid #e5e5e5;
+  margin-bottom: 4px;
+}
+
+.currency-input__search-icon {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #828282;
+  pointer-events: none;
+}
+
+.currency-input__search-field {
+  width: 100%;
+  padding: 12px 16px 12px 40px;
+  border: 1px solid #E0E0E0;
+  border-radius: 20px;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.currency-input__search-field::placeholder {
+  color: #999;
+}
+
+.currency-input__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-height: 250px;
+  overflow-y: auto;
+}
+
+.currency-input__item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px;
+  height: 48px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.currency-input__item:hover {
+  background-color: #f5f5f5;
+}
+
+.currency-input__item--selected {
+  background-color: #F5F5F5;
+}
+
+.currency-input__item--selected:hover {
+  background-color: #F5F5F5;
+}
+
+.currency-input__item-info {
+  flex: 1;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-align: left;
+  color: #013941;
+}
+
+.currency-input__no-results {
+  padding: 16px;
+  text-align: center;
+  color: #999;
+  font-size: 14px;
+}
